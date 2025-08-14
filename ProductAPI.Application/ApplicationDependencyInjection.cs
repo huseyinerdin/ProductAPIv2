@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProductAPI.Application.CQRS.Products.Queries;
 using ProductAPI.Application.Mapping;
 using ProductAPI.Application.Services;
 using ProductAPI.Infrastructure;
@@ -16,6 +17,7 @@ namespace ProductAPI.Application
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                cfg.RegisterServicesFromAssembly(typeof(GetProductsQuery).Assembly);
                 cfg.RegisterServicesFromAssembly(typeof(ProductProfile).Assembly);
             });
             services.AddAutoMapper(cfg =>
