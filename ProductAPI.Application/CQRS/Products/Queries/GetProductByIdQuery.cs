@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using ProductAPI.Application.DTOs;
+using ProductAPI.Application.DTOs.ProductDtos;
 using ProductAPI.Core.Entities;
 using ProductAPI.Infrastructure.Repositories;
 

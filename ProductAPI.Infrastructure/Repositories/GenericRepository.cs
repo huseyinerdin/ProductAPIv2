@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProductAPI.Infrastructure.Data;
+using System.Linq.Expressions;
 
 namespace ProductAPI.Infrastructure.Repositories
 {
@@ -26,5 +27,10 @@ namespace ProductAPI.Infrastructure.Repositories
         public void Update(T entity) => _dbSet.Update(entity);
 
         public async Task<bool> SaveChangesAsync() => await _context.SaveChangesAsync() > 0;
+
+        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _dbSet.AsNoTracking().Where(predicate).ToListAsync();
+        }
     }
 }

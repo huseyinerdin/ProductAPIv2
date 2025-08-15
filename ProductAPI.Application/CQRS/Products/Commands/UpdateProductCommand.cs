@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using ProductAPI.Application.DTOs;
+using ProductAPI.Application.DTOs.ProductDtos;
 using ProductAPI.Application.Services;
 using ProductAPI.Core.Entities;
 using ProductAPI.Infrastructure.Repositories;

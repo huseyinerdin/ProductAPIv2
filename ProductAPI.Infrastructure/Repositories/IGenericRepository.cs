@@ -1,4 +1,6 @@
-﻿namespace ProductAPI.Infrastructure.Repositories
+﻿using System.Linq.Expressions;
+
+namespace ProductAPI.Infrastructure.Repositories
 {
     public interface IGenericRepository<T>
         where T : class
@@ -14,5 +16,7 @@
         void Update(T entity);
 
         Task<bool> SaveChangesAsync();
+
+        Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> predicate);
     }
 }
