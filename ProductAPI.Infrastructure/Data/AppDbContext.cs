@@ -20,7 +20,19 @@ namespace ProductAPI.Infrastructure.Data
                     .IsRequired()
                     .HasPrecision(18, 2);
             });
+
+            modelBuilder.Entity<AppUser>(u =>
+            {
+                u.HasKey(x => x.Id);
+                u.Property(x => x.UserName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+                u.Property(x => x.PasswordHash)
+                    .IsRequired();
+            });
         }
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<AppUser> AppUsers { get; set; }
     }
 }

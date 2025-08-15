@@ -1,11 +1,13 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductAPI.Application.CQRS.Products.Commands;
 using ProductAPI.Application.CQRS.Products.Queries;
-using ProductAPI.Application.DTOs;
+using ProductAPI.Application.DTOs.ProductDtos;
 
 namespace ProductAPI.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController(IMediator mediatr) : ControllerBase
